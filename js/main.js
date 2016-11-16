@@ -1,6 +1,6 @@
 $(document).ready(function () {
     if(window.location.hash){
-       document.cookie = "access_token="+window.location.hash;
+       document.cookie = "access_token="+window.location.hash.substring(14);
        document.location="index.html";     
     }else{
        checkCookie();
