@@ -28,5 +28,6 @@ checkCookie = function() {
     var token=getCookie("access_token");
     if (token!= "") {
         alert("Welcome again " + token);
+        document.location="search.html"; 
     } 
 }
