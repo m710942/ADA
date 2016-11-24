@@ -1,7 +1,7 @@
 $(document).ready(function () {
    $("#busca").on("click", function(ev){
    	var token = getCookie("access_token");
-   	if(!token){
+   	if(token){
    		buscar(token);	
    	}else{
    		document.location ="index.html";
