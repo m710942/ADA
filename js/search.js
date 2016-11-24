@@ -38,7 +38,7 @@ onMessageReceived = function(response){
 	results.html = "";
 	for(var i = 0; i < data.length; i++){
 		if(data[i].type === "image"){
-			results.append("<img src='"+data[i].images.thumbnail.url+"' height='"+data[i].images.thumbnail.height+"' width='"+data[i].images.thumbnail.width"'>");
+			results.append("<img src='"+data[i].images.thumbnail.url+"' height='"+data[i].images.thumbnail.height+"' width='"+data[i].images.thumbnail.width+"'>");
 		}
 
 	}
