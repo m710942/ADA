@@ -29,7 +29,9 @@ getCookie = function(cname) {
 
 buscar = function(token){
 	var value = $("#query").val();
-	$.ajax("https://api.instagram.com/v1/tags/"+value+"/media/recent?access_token="+token, {method:"GET", type:"json", success:function(data){onMessageReceived(data)}});
+	$.ajax("https://api.instagram.com/v1/tags/"+value+"/media/recent?access_token="+token, {success:function(data){
+		onMessageReceived(data);
+	}});
 }
 
 onMessageReceived = function(response){
