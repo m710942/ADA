@@ -1,7 +1,7 @@
 $(document).ready(function () {
    $("#busca").on("click", function(ev){
    	var token = getCookie("access_token");
-   	if(!token){
+   	if(token){
    		buscar(token);	
    	}else{
    		document.location ="index.html";
@@ -28,8 +28,10 @@ getCookie = function(cname) {
 
 
 buscar = function(token){
-	var value = $("#query").text();
-	$.ajax("https://api.instagram.com/v1/tags/"+value+"/media/recent?access_token="+token, {jsonp: "callback", jsonpCallback: "onMessageReceived"});
+	var value = $("#query").val();
+ 	$.ajax("https://api.instagram.com/v1/tags/"+value+"/media/recent?access_token="+token, {success:function(data){
+ 		onMessageReceived(data);
+ 	}});
 }
 
 onMessageReceived = function(response){
