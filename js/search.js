@@ -66,7 +66,7 @@ analyze = function(url){
             },
             type: "POST",
             // Request body
-            data: {"url": url},
+            data: JSON.stringify({"url": url}),
         })
         .done(function(data) {
             $("img_"+url).append(data);
