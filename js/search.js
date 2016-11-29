@@ -58,7 +58,7 @@ analyze = function(url, id){
         };
       
         $.ajax({
-            url: "https://api.projectoxford.ai/vision/v1.0/analyze?visualFeatures" + "Categories,Description,Tags,Faces,ImageType,Color",
+            url: "https://api.projectoxford.ai/vision/v1.0/analyze?visualFeatures=" + "Categories,Description,Tags,Faces,ImageType,Color",
             beforeSend: function(xhrObj){
                 // Request headers
                 xhrObj.setRequestHeader("Content-Type","application/json");
