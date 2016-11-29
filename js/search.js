@@ -40,7 +40,7 @@ onMessageReceived = function(response){
   results.empty();
   for(var i = 0; i < data.length; i++){
     if(data[i].type === "image"){
-      results.append("<div class='thumbnail'><img src='"+data[i].images.thumbnail.url+"' height='"+data[i].images.thumbnail.height+"' width='"+data[i].images.thumbnail.width+"'><div class='caption' id='img_"+data[i].images.thumbnail.url+"'>"+ analyze(data[i].images.thumbnail.url)+"</div>");
+      results.append("<div class='thumbnail'><img src='"+data[i].images.thumbnail.url+"' height='"+data[i].images.thumbnail.height+"' width='"+data[i].images.thumbnail.width+"'><div class='caption' id='img_"+i+"'>"+ analyze(data[i].images.standard_resolution.url, i)+"</div>");
     }
 
   }
@@ -49,7 +49,7 @@ onMessageReceived = function(response){
 }
 
 
-analyze = function(url){
+analyze = function(url, id){
 
         var key = $("#key").val();
         var params = {
@@ -69,7 +69,7 @@ analyze = function(url){
             data: JSON.stringify({"url": url}),
         })
         .done(function(data) {
-            $("#img_"+url).append(data);
+            $("#img_"+id).append(data);
         })
         .fail(function() {
             alert("error");
