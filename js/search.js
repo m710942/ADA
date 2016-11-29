@@ -51,7 +51,7 @@ onMessageReceived = function(response){
 
 analyze = function(url){
 
-        var key = $("#key").text();
+        var key = $("#key").val();
         var params = {
             // Request parameters
             "visualFeatures": "Categories, Description"
