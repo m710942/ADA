@@ -54,7 +54,7 @@ analyze = function(url){
         var key = $("#key").val();
         var params = {
             // Request parameters
-            "visualFeatures": "Categories,Description"
+            "visualFeatures": ["Categories","Description"]
         };
       
         $.ajax({
