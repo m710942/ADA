@@ -37,7 +37,7 @@ buscar = function(token){
 onMessageReceived = function(response){
 	var data = response.data;
 	var results = $("#results");
-	results.clear();
+	results.empty();
 	for(var i = 0; i < data.length; i++){
 		if(data[i].type === "image"){
       results.append("<div class='thumbnail'><img src='"+data[i].images.thumbnail.url+"' height='"+data[i].images.thumbnail.height+"' width='"+data[i].images.thumbnail.width+"'><div class='caption' id='img_"+data[i].images.thumbnail.url+"'>"+ analyze(data[i].images.thumbnail.url)+"</div>");
