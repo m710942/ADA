@@ -62,7 +62,7 @@ analyze = function(url){
             beforeSend: function(xhrObj){
                 // Request headers
                 xhrObj.setRequestHeader("Content-Type","application/json");
-                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","{subscription key}");
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key",key);
             },
             type: "POST",
             // Request body
