@@ -1,13 +1,13 @@
 $(document).ready(function () {
    $("#busca").on("click", function(ev){
-   	var token = getCookie("access_token");
-   	if(token){
-   		buscar(token);	
-   	}else{
-   		document.location ="index.html";
-   	}
-   		
-   	});
+    var token = getCookie("access_token");
+    if(token){
+      buscar(token);  
+    }else{
+      document.location ="index.html";
+    }
+      
+    });
 });
 
 
@@ -28,22 +28,22 @@ getCookie = function(cname) {
 
 
 buscar = function(token){
-	var value = $("#query").val();
- 	$.ajax("https://api.instagram.com/v1/tags/"+value+"/media/recent?access_token="+token, {success:function(data){
- 		onMessageReceived(data);
- 	}});
+  var value = $("#query").val();
+  $.ajax("https://api.instagram.com/v1/tags/"+value+"/media/recent?access_token="+token, {success:function(data){
+    onMessageReceived(data);
+  }});
 }
 
 onMessageReceived = function(response){
-	var data = response.data;
-	var results = $("#results");
-	results.empty();
-	for(var i = 0; i < data.length; i++){
-		if(data[i].type === "image"){
+  var data = response.data;
+  var results = $("#results");
+  results.empty();
+  for(var i = 0; i < data.length; i++){
+    if(data[i].type === "image"){
       results.append("<div class='thumbnail'><img src='"+data[i].images.thumbnail.url+"' height='"+data[i].images.thumbnail.height+"' width='"+data[i].images.thumbnail.width+"'><div class='caption' id='img_"+data[i].images.thumbnail.url+"'>"+ analyze(data[i].images.thumbnail.url)+"</div>");
-		}
+    }
 
-	}
+  }
 
 
 }
@@ -58,7 +58,7 @@ analyze = function(url){
         };
       
         $.ajax({
-            url: "https://api.projectoxford.ai/vision/v1.0/analyze?" + $.param(params),
+            url: "https://api.projectoxford.ai/vision/v1.0/analyze?visualFeatures" + "Categories,Description,Tags,Faces,ImageType,Color",
             beforeSend: function(xhrObj){
                 // Request headers
                 xhrObj.setRequestHeader("Content-Type","application/json");
@@ -69,7 +69,7 @@ analyze = function(url){
             data: JSON.stringify({"url": url}),
         })
         .done(function(data) {
-            $("img_"+url).append(data);
+            $("#img_"+url).append(data);
         })
         .fail(function() {
             alert("error");
