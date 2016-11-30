@@ -21,7 +21,7 @@ MEDIA.decorate_ms = function(media, json){
 	media.color = json.color;
 	media.people = json.faces;
 	media.clazz = json.tags;
-	media.tags.concat(json.description.tags);
+	media.tags = media.tags.concat(json.description.tags);
 
 	return media;
 };
