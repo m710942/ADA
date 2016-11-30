@@ -28,6 +28,7 @@ getCookie = function(cname) {
 }
 
 var MEDIA_RESULTS = [];
+var EXPECTED_MEDIA = 0;
 buscar = function(token){
   var value = $("#query").val();
   $("#working").show();
@@ -40,13 +41,14 @@ var TAGS = {};
 
 onMessageReceived = function(response){
   var data = response.data;
+  EXPECTED_MEDIA = data.length;
   for(var i = 0; i < data.length; i++){
 
     if(data[i].type === "image"){
       var media = MEDIA.decorate_ig({}, data[i]);
       analyze(media);
     }
-    $("#working").hide();
+   
   }
 
 
@@ -73,6 +75,9 @@ analyze = function(media){
             media = MEDIA.decorate_ms(media, data);
             MEDIA_RESULTS.push(media);
             display(media);
+            if(MEDIA_RESULTS.length === EXPECTED_MEDIA){
+               $("#working").hide();
+            }
         })
         .fail(function() {
             alert("error");
