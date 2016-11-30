@@ -9,7 +9,7 @@ FORMAT.newMedia = function(media){
 					"<div class='col-sm-4'>",
 					"<div class='media-left media-middle'>",
 					"<a href='"+media.standard_resolution.url+"' donwload=''>",
-					"<img class='media-object img-rounded' src='", media.thumbnail.url, "alt='...' height='+",media.thumbnail.height,"px' width='"+,media.thumbnail.width,+"px'>"
+					"<img class='media-object img-rounded' src='", media.thumbnail.url, "alt='...' height='+",media.thumbnail.height,"px' width='"+media.thumbnail.width+"px'>"
 					"</a>",
 					"</div>",
 					"<div class='btn-group' role='group'>",
