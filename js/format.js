@@ -120,7 +120,7 @@ var template = [];
 			template.push("("+media.clazz[i].hint+")")
 		}
 		template.push("</div>");
-		template.push("<div>");
+		template.push("</div>");
 	}
 	return template.join("");
 };
