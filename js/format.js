@@ -9,7 +9,7 @@ FORMAT.newMedia = function(media){
 					"<div class='col-sm-4'>",
 					"<div class='media-left media-middle'>",
 					"<a href='"+media.standard_resolution.url+"' donwload=''>",
-					"<img class='media-object img-rounded' src='", media.thumbnail.url, "alt='...' height='+",media.thumbnail.height,"px' width='"+media.thumbnail.width+"px'>"
+					"<img class='media-object img-rounded' src='"+ media.thumbnail.url+ "alt='...' height='"+media.thumbnail.height+"px' width='"+media.thumbnail.width+"px'>",
 					"</a>",
 					"</div>",
 					"<div class='btn-group' role='group'>",
@@ -28,25 +28,25 @@ FORMAT.newMedia = function(media){
 					"<p class='list-group-item-text'>"+media.captions.user[0].text+"</p>",
 					"</a>",
 					"<a href='#' class='list-group-item'>",
-					"<strong>Image analysis</strong>"
+					"<strong>Image analysis</strong>",
 					"<p class='list-group-item-text'>"+media.captions.analysis[0].text+"</p>",
-					"</a>"
-					"<a href='#' class='list-group-item'>"
-					"<strong>Image type</strong>"
-                    "<p class='list-group-item-text'>"+media.type+"</p>"
-                    "</a>"
-                    "<a href='#' class='list-group-item'>"
-                    "<strong>Accent / Predominant color</strong>"
+					"</a>",
+					"<a href='#' class='list-group-item'>",
+					"<strong>Image type</strong>",
+                    "<p class='list-group-item-text'>"+media.type+"</p>",
+                    "</a>",
+                    "<a href='#' class='list-group-item'>",
+                    "<strong>Accent / Predominant color</strong>",
                     "<p class='list-group-item-text'>",
                     "<span style='background-color: #"+media.color.accentColor+";' class='dominant-color'> </span>",
-                    "</p>"
-                    "</a>"
-                    "<a data-toggle='collapse' href='#people_section_"+media.id+"' class='list-group-item'>"
-                    "<strong>People <span class='caret'></span></strong>"
+                    "</p>",
+                    "</a>",
+                    "<a data-toggle='collapse' href='#people_section_"+media.id+"' class='list-group-item'>",
+                    "<strong>People <span class='caret'></span></strong>",
                     "<p class='list-group-item-text'>",
                     "<div id='people_section_'"+media.id+" class='collapse'></div>",
-                    "</p>"
-                    "</a>"
+                    "</p>",
+                    "</a>",
                     "<a data-toggle='collapse' href='#media_clazz_"+media.id+"' class='list-group-item'>",
                     "<strong> Classification <span class='caret'></span></strong>",
                     "<p class='list-group-item-text'>",
@@ -63,9 +63,8 @@ FORMAT.newMedia = function(media){
                     "</div>"
 					];
 
-                 return template.join("");                          
-                   
-}
+                 return template.join("");                        
+};
 
 FORMAT.getTags = function(media){
 	var template = [];
@@ -73,7 +72,7 @@ FORMAT.getTags = function(media){
 		template.push("<a href='#'>"+media.tags[i]+"</a>");
 	}
 	return template.join("");
-}
+};
 
 FORMAT.getPeople = function(media){
 	var male = 0;
@@ -110,7 +109,7 @@ FORMAT.getPeople = function(media){
                                                     
                                                     
                                                     
-}
+};
 FORMAT.getClassification = function(media){
 
 var template = [];
@@ -124,4 +123,4 @@ var template = [];
 		template.push("<div>");
 	}
 	return template.join("");
-}
+};
