@@ -17,7 +17,7 @@ MEDIA.decorate_ig = function(media, json){
 };
 
 MEDIA.decorate_ms = function(media, json){
-	media.captions.analysis = json.description.caption;
+	media.captions.analysis = json.description.captions;
 	media.color = json.color;
 	media.people = json.faces;
 	media.clazz = json.tags;
