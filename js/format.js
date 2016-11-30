@@ -29,7 +29,7 @@ FORMAT.newMedia = function(media){
 					"</a>",
 					"<a href='#' class='list-group-item'>",
 					"<strong>Image analysis</strong>",
-					"<p class='list-group-item-text'>"+(media.captions.analysis) ? media.captions.analysis[0].text : "-" +"</p>",
+					"<p class='list-group-item-text'>"+media.captions.analysis[0].text+"</p>",
 					"</a>",
 					"<a href='#' class='list-group-item'>",
 					"<strong>Image type</strong>",
@@ -70,7 +70,7 @@ FORMAT.getTags = function(media){
 	for(var i = 0; i < media.tags.length; i++){
 		template.push("<a href='#'>"+media.tags[i]+"</a>");
 	}
-	return template.join("");
+	return template.join("\n");
 };
 
 FORMAT.getPeople = function(media){
