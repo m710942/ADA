@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  $("#working").hide();
    $("#busca").on("click", function(ev){
     var token = getCookie("access_token");
     if(token){
@@ -26,9 +27,10 @@ getCookie = function(cname) {
     return "";
 }
 
-
+var MEDIA_RESULTS = [];
 buscar = function(token){
   var value = $("#query").val();
+  $("#working").show();
   $.ajax("https://api.instagram.com/v1/tags/"+value+"/media/recent?access_token="+token, {success:function(data){
     onMessageReceived(data);
   }});
@@ -44,7 +46,7 @@ onMessageReceived = function(response){
       var media = MEDIA.decorate_ig({}, data[i]);
       analyze(media);
     }
-
+    $("#working").hide();
   }
 
 
@@ -69,6 +71,7 @@ analyze = function(media){
         })
         .done(function(data) {
             media = MEDIA.decorate_ms(media, data);
+            MEDIA_RESULTS.push(media);
             display(media);
         })
         .fail(function() {
@@ -82,3 +85,4 @@ display = function(media){
   $("#people_section_"+media.id).append(FORMAT.getPeople(media));
   $("#media_clazz_"+media.id).append(FORMAT.getClassification(media));
 }
+

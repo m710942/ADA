@@ -32,7 +32,7 @@ FORMAT.newMedia = function(media){
 					"<p class='list-group-item-text'>"+media.captions.analysis[0].text+"</p>",
 					"</a>",
 					"<a href='#' class='list-group-item'>",
-					"<strong>Image type</strong>",
+					"<strong>Media type</strong>",
                     "<p class='list-group-item-text'>"+media.type+"</p>",
                     "</a>",
                     "<a href='#' class='list-group-item'>",

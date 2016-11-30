@@ -36,22 +36,109 @@
 </head>
 <body>
 
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Proyecto Integrador</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      <ul class="nav navbar-nav navbar-right">
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input id="key" type="text" class="form-control" placeholder="app_key">
+        </div>
+      </form>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
 <!-- main section -->
 <section id="main" class="container-fluid">
-    <div class="row">
-        <div class="jumbotron">
-            <h1> Buscar: </h1>
-                <input id="query" type="text" name="q">
-                <button id="busca"> buscar </button>
+    
+        <div class="well">
+            <div class="row">
+                <div class='col-md-6'>
+                    <form class="form-inline">
+                <h1> Search: </h1>
+                <div class="form-group">
+                    <div class="input-group input-group-lg">
+                        <span class='input-group-addon'>#</span>
+                        <input id="query" class='form-control' type="text" name="q">
+                    </div>
+                </div>
+                <div class="input-group input-group-lg">
+                    <button class='btn btn-primary btn-lg' id="busca"> <span class='glyphicon glyphicon-search'></span> </button>
+                </div>
+                
+            </form>
+                </div>
+                <div class='col-md-6'>
+                    <h1> Sort by:</h1>
+                <div class="form-group">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            People <span class="caret"></span>
+                            </button>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Number of people</a></li>
+                                <li><a href="#">Age avg.</a></li>
+                                <li><a href="#">Gender</a></li>
+                              </ul>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Metadata <span class="caret"></span>
+                            </button>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Creation date</a></li>
+                                <li><a href="#">Accent color</a></li>
+                                <li><a href="#">Gender</a></li>
+                              </ul>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Social<span class="caret"></span>
+                            </button>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Number of tags</a></li>
+                                <li><a href="#">Number of likes</a></li>
+                                <li><a href="#">Number of comments</a></li>
+                              </ul>
+                        </div>
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Confidence<span class="caret"></span>
+                            </button>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Analysis</a></li>
+                                <li><a href="#">Classification</a></li>
+                              </ul>
+                        </div>
+                </div>
+                </div>
+            
         </div>
-            Key: <input id="key" type="text" name="q">
-      
     </div>  
+    <div id="results" class="row"></div>
 
-        <div id="results" class="row"></div>
-
+    <div id='working' class='center-block'>
+        <img class='center-block' src="img/spin.svg">
+    </div>
+        
 </section>
+
+
 
 
 <!-- jQuery for dom manipulation-->
