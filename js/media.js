@@ -2,6 +2,7 @@ var MEDIA = MEDIA || {};
 
 
 MEDIA.decorate_ig = function(media, json){
+	media.captions = {};
 	media.captions.user = json.caption;
 	media.tags = json.tags;
 	media.standard_resolution = json.standard_resolution;
