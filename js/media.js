@@ -11,7 +11,7 @@ MEDIA.decorate_ig = function(media, json){
 	media.tags = json.tags;
 
 	return media;
-}
+};
 
 MEDIA.decorate_ms = function(media, json){
 	media.captions.analysis = json.description.caption;
@@ -21,4 +21,4 @@ MEDIA.decorate_ms = function(media, json){
 	media.tags.push(json.description.tags);
 
 	return media;
-}
+};
