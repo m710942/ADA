@@ -26,6 +26,11 @@
         body {
             background: url("img/hoffman.png");
         }
+        .dominant-color {
+            display: block;
+            height: 32px;
+            width: 32px;    
+        }
     </style>
 
 </head>
@@ -39,17 +44,23 @@
             <h1> Buscar: </h1>
                 <input id="query" type="text" name="q">
                 <button id="busca"> buscar </button>
-            </div>
+        </div>
             Key: <input id="key" type="text" name="q">
-            <div id="results"></div>
-    </div>   
+      
+    </div>  
+
+        <div id="results" class="row"></div>
+
 </section>
 
 
 <!-- jQuery for dom manipulation-->
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!-- Main code -->
 <script src="js/search.js"></script>
 
+
+   
 </body>
 </html>
