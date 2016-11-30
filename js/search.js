@@ -78,7 +78,7 @@ analyze = function(media){
 
 display = function(media){
   $("#results").append(FORMAT.newMedia(media));
-  $("#tag_pool_"+media_id).append(FORMAT.getTags(media));
+  $("#tag_pool_"+media.id).append(FORMAT.getTags(media));
   $("#people_section_"+media.id).append(FORMAT.getPeople(media));
   $("#media_clazz_"+media.id).append(FORMAT.getClassification(media));
 }
