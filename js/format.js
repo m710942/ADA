@@ -68,7 +68,7 @@ FORMAT.newMedia = function(media){
 FORMAT.getTags = function(media){
 	var template = [];
 	for(var i = 0; i < media.tags.length; i++){
-		template.push("<a href='#'>"+media.tags[i]+"</a>");
+		template.push("<a href='#'>#"+media.tags[i]+"</a>");
 	}
 	return template.join("\n");
 };
@@ -102,8 +102,8 @@ FORMAT.getPeople = function(media){
 	}
 	var template = ["<span class='label label-default'>Male <span class='badge'>"+male+"</span></span>",
 	"<span class='label label-default'>Female <span class='badge'>"+female+"</span></span>",
-	"<span class='label label-default'>Max age <span class='badge'>"+min+"</span></span>",
-	"<span class='label label-default'>Min age <span class='badge'>"+max+"</span></span>",
+	"<span class='label label-default'>Min age <span class='badge'>"+min+"</span></span>",
+	"<span class='label label-default'>Max age <span class='badge'>"+max+"</span></span>",
 	"<span class='label label-default'>Age avg. <span class='badge'>"+(avg/media.people.length).toFixed(2)+"</span></span>"];
 
 	return template.join("\n");
