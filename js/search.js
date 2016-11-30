@@ -34,13 +34,15 @@ buscar = function(token){
   }});
 }
 
+var TAGS = {};
+
 onMessageReceived = function(response){
   var data = response.data;
-  var results = $("#results");
-  results.empty();
   for(var i = 0; i < data.length; i++){
+
     if(data[i].type === "image"){
-      results.append("<div class='thumbnail'><img src='"+data[i].images.thumbnail.url+"' height='"+data[i].images.thumbnail.height+"' width='"+data[i].images.thumbnail.width+"'><div class='caption' id='img_"+i+"'>"+ analyze(data[i].images.standard_resolution.url, i)+"</div>");
+      var media = MEDIA.decorate_ig({}, data[i]);
+      analyze(media);
     }
 
   }
@@ -49,16 +51,13 @@ onMessageReceived = function(response){
 }
 
 
-analyze = function(url, id){
+analyze = function(media){
 
         var key = $("#key").val();
-        var params = {
-            // Request parameters
-            "visualFeatures": ["Categories","Description"]
-        };
+
       
         $.ajax({
-            url: "https://api.projectoxford.ai/vision/v1.0/analyze?visualFeatures=" + "Categories,Description,Tags,Faces,ImageType,Color",
+            url: "https://api.projectoxford.ai/vision/v1.0/analyze?visualFeatures" + "Categories,Description,Tags,Faces,ImageType,Color",
             beforeSend: function(xhrObj){
                 // Request headers
                 xhrObj.setRequestHeader("Content-Type","application/json");
@@ -66,12 +65,20 @@ analyze = function(url, id){
             },
             type: "POST",
             // Request body
-            data: JSON.stringify({"url": url}),
+            data: JSON.stringify({"url": media.standard_resolution.url}),
         })
         .done(function(data) {
-            $("#img_"+id).append(data);
+            media = MEDIA.decorate_ms(media, data);
+            display(media);
         })
         .fail(function() {
             alert("error");
         });
+}
+
+display = function(media){
+  $("#results").append(FORMAT.newMedia(media));
+  $("#tag_pool_"+media_id).append(FORMAT.getTags(media));
+  $("#people_section_"+media.id).append(FORMAT.getPeople(media));
+  $("#media_clazz_"+media.id).append(FORMAT.getClassification(media));
 }
