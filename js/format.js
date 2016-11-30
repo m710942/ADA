@@ -106,7 +106,7 @@ FORMAT.getPeople = function(media){
 	"<span class='label label-default'>Min age <span class='badge'>"+max+"</span></span>",
 	"<span class='label label-default'>Age avg. <span class='badge'>"+(avg/media.people.length).toFixed(2)+"</span></span>"];
 
-	return template.join("");
+	return template.join("\n");
                                                     
                                                     
                                                     
@@ -117,7 +117,7 @@ FORMAT.getClassification = function(media){
 var template = [];
 	for(var i = 0; i < media.clazz.length; i++){
 		template.push("<div class='progress'>");
-		template.push("<div class='progress-bar' role='progressbar' aria-valuemin='0' aria-valuemax='100' style='width:"+media.clazz[i].confidence+"%;'>"+media.clazz[i].name);
+		template.push("<div class='progress-bar' role='progressbar' aria-valuemin='0' aria-valuemax='100' style='width:"+media.clazz[i].confidence*100+"%;'>"+media.clazz[i].name);
 		if(media.clazz[i].hint){
 			template.push("("+media.clazz[i].hint+")")
 		}
