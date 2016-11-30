@@ -44,7 +44,7 @@ FORMAT.newMedia = function(media){
                     "<a data-toggle='collapse' href='#people_section_"+media.id+"' class='list-group-item'>",
                     "<strong>People <span class='caret'></span></strong>",
                     "<p class='list-group-item-text'>",
-                    "<div id='people_section_'"+media.id+" class='collapse'></div>",
+                    "<div id='people_section_"+media.id+"' class='collapse'></div>",
                     "</p>",
                     "</a>",
                     "<a data-toggle='collapse' href='#media_clazz_"+media.id+"' class='list-group-item'>",
