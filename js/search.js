@@ -70,7 +70,11 @@ noDataBanner = function(){
 }
 
 var TAGS = {};
-window.onMessageReceived = onMessageReceived = function(response){
+onMessageReceived = function(response){
+  if(!response){
+    return;
+  }
+
   var data = response.data;
   if(!data || data.length === 0){
     noDataBanner();
