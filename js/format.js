@@ -141,7 +141,7 @@ var template = [];
 FORMAT.getTagSuggestion = function(media){
 	var template = ["<button onclick=\"$('#query').val('"+media.name+"')\" class='btn btn-default'>",
 					"#"+media.name,
-					"<span class='badge'>",
+					"&nbsp; <span class='badge'>",
 					media.media_count,
 					"</span>",
 					"</button>"];
