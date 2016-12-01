@@ -14,12 +14,12 @@ SORT.byPeople = function(mediaArray, field){
 	if(field === 'gender'){
 		return mediaArray.sort(function(mediaA, mediaB){
 			var a, b;
-			if(mediaA.people.male > mediaA.people.female){
+			if(mediaA.people.male > mediaB.people.female){
 				a = 1;
 			}else{
 				a = 0;
 			}
-			if(mediaA.people.male > mediaA.people.female){
+			if(mediaA.people.male > mediaB.people.female){
 				b = 1;
 			}else{
 				b = 0;
@@ -36,7 +36,17 @@ SORT.byMeta = function(mediaArray, field){
 	}
 
 	if(field === 'color'){
-
+		return mediaArray.sort(function(mediaA, mediaB){
+			if(mediaA.color.h === mediaB.color.h){
+				if(mediaA.color.s === mediaB.color.s){
+					return mediaA.color.l - mediaB.color.l;
+				}else{
+					return mediaA.color.s - mediaB.color.s;
+				}
+			}else{
+				return mediaA.color.h - mediaB.color.h;
+			}
+		});
 	}
 }
 SORT.bySocial = function(mediaArray, field){

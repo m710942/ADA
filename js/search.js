@@ -35,6 +35,7 @@ var EXPECTED_MEDIA = 0;
 var CURRENT_SEARCH = "";
 var TOKEN = "";
 buscar = function(token){
+  MEDIA_RESULTS = [];
   CURRENT_SEARCH = $("#query").val();
   TOKEN = token;
   $("#working").show();
