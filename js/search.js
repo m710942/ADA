@@ -72,7 +72,7 @@ noDataBanner = function(){
 
 var TAGS = {};
 onMessageReceived = function(response){
-  if(!response){
+  if(response == undefined){
     return;
   }
 
