@@ -1,5 +1,6 @@
 $(document).ready(function () {
   $("#working").hide();
+  $("#alert").hide();
    $("#busca").on("click", function(ev){
     $("#results").empty();
     var token = getCookie("access_token");
@@ -34,15 +35,43 @@ var EXPECTED_MEDIA = 0;
 buscar = function(token){
   var value = $("#query").val();
   $("#working").show();
+  $("#alert").hide();
   $.ajax("https://api.instagram.com/v1/tags/"+value+"/media/recent?access_token="+token, {success:function(data){
     onMessageReceived(data);
   }});
 }
 
-var TAGS = {};
+didYouMean = function(){
+  $.ajax("https://api.instagram.com/v1/tags/search?q="+value+"&access_token="+token, {success:function(data){
+    onSuggestionReceived(data);
+  }});
+}
 
+onSuggestionReceived = function(response){
+  var data = response.data;
+  if(!data || data.length === 0){
+    noDataBanner();
+    return;
+  }
+  var results = $("#results").append("<h3> Did you mean... </h3>");
+  for(var i = 0; i < data.length; i++){
+    results.append(FORMAT.getTagSuggestion(data[i]));
+  }
+  $("#working").hide();
+}
+
+noDataBanner = function(){
+  $("#alert").show();
+  $("#working").hide();
+}
+
+var TAGS = {};
 onMessageReceived = function(response){
   var data = response.data;
+  if(!data || data.length === 0){
+    didYouMean();
+    return;
+  }
   EXPECTED_MEDIA = data.length;
   for(var i = 0; i < data.length; i++){
 

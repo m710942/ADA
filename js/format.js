@@ -137,3 +137,13 @@ var template = [];
 	}
 	return template.join("");
 };
+
+FORMAT.getTagSuggestion = function(media){
+	var template = ["<span class='label label-default'>",
+					"#"+media.name,
+					"<span class='badge'>",
+					media.media_count,
+					"</span>",
+					"</span>"];
+	return template.join("");
+}
