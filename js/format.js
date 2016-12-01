@@ -139,11 +139,11 @@ var template = [];
 };
 
 FORMAT.getTagSuggestion = function(media){
-	var template = ["<span class='label label-default'>",
+	var template = ["<button onclick=\"$('#query').val('"+media.name+"')\" class='btn btn-default'>",
 					"#"+media.name,
 					"<span class='badge'>",
 					media.media_count,
 					"</span>",
-					"</span>"];
-	return template.join("\n");
+					"</button>"];
+	return template.join("");
 }
