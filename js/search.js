@@ -1,7 +1,6 @@
 $(document).ready(function () {
   $("#working").hide();
   $("#alert").hide();
-  window.onMessageReceived = onMessageReceived;
    $("#busca").on("click", function(ev){
     $("#results").empty();
     var token = getCookie("access_token");
@@ -41,8 +40,10 @@ buscar = function(token){
   $("#working").show();
   $("#alert").hide();
   $.ajax({url: "https://api.instagram.com/v1/tags/"+CURRENT_SEARCH +"/media/recent?access_token="+TOKEN, type:'GET', dataType:'jsonp',  jsonp:'callback', jsonpCallback:onMessageReceived, success:function(data){
+    console.log(data);
     onMessageReceived(data);
   }});
+  console.info("done ajax");
 }
 
 didYouMean = function(){
