@@ -39,7 +39,7 @@ buscar = function(token){
   TOKEN = token;
   $("#working").show();
   $("#alert").hide();
-  $.ajax({url: "https://api.instagram.com/v1/tags/"+CURRENT_SEARCH +"/media/recent?access_token="+TOKEN, type:'GET', dataType:'jsonp',  jsonp:'callback', jsonpCallback:onMessageReceived, success:function(data){
+  $.ajax({url: "https://api.instagram.com/v1/tags/"+CURRENT_SEARCH +"/media/recent?access_token="+TOKEN, type:'GET', dataType:'jsonp',  jsonp:'callback', jsonpCallback:'onMessageReceived', success:function(data){
     console.log(data);
     onMessageReceived(data);
   }});
