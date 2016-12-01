@@ -31,6 +31,7 @@
             height: 32px;
             width: 32px;    
         }
+        a{cursor: pointer;}
     </style>
 
 </head>
@@ -84,16 +85,17 @@
             </div>
                 </div>
                 <div class='col-md-6'>
-                    <h1> Sort by:</h1>
+                    <h1> Sort by: </h1> 
+
                 <div class="form-group">
                         <div class="btn-group">
                             <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             People <span class="caret"></span>
                             </button>
                               <ul class="dropdown-menu">
-                                <li><a href="#">Number of people</a></li>
-                                <li><a href="#">Age avg.</a></li>
-                                <li><a href="#">Gender</a></li>
+                                <li><a onclick="sort('people', 'number')" >Number of people</a></li>
+                                <li><a onclick="sort('people', 'avg')">Age avg.</a></li>
+                                <li><a onclick="sort('people', 'gender')">Gender</a></li>
                               </ul>
                         </div>
                         <div class="btn-group">
@@ -101,9 +103,8 @@
                             Metadata <span class="caret"></span>
                             </button>
                               <ul class="dropdown-menu">
-                                <li><a href="#">Creation date</a></li>
-                                <li><a href="#">Accent color</a></li>
-                                <li><a href="#">Gender</a></li>
+                                <li><a onclick="sort('meta', 'date')">Creation date</a></li>
+                                <li><a onclick="sort('meta', 'color')">Accent color</a></li>
                               </ul>
                         </div>
                         <div class="btn-group">
@@ -111,9 +112,9 @@
                             Social<span class="caret"></span>
                             </button>
                               <ul class="dropdown-menu">
-                                <li><a href="#">Number of tags</a></li>
-                                <li><a href="#">Number of likes</a></li>
-                                <li><a href="#">Number of comments</a></li>
+                                <li><a onclick="sort('social', 'tags')">Number of tags</a></li>
+                                <li><a onclick="sort('social', 'likes')">Number of likes</a></li>
+                                <li><a onclick="sort('social', 'comments')">Number of comments</a></li>
                               </ul>
                         </div>
                           <div class="btn-group">
@@ -121,11 +122,19 @@
                             Confidence<span class="caret"></span>
                             </button>
                               <ul class="dropdown-menu">
-                                <li><a href="#">Analysis</a></li>
-                                <li><a href="#">Classification</a></li>
+                                <li><a onclick="sort('confidence', 'analysis')">Analysis</a></li>
+                                <li><a onclick="sort('confidence', 'classification')">Classification</a></li>
                               </ul>
                         </div>
+
+                    <ol class="breadcrumb">
+                    <li> <span class="label label-primary">Sorted by: </span></li>
+                        <li id="sortParent">Metadata</li>
+                        <li id="sortField">Creation date</li>
+                        <li  class="active"><a onclick="sort('reverse')" id="sortOrder"> Newest first</a> <span class="glyphicon glyphicon-sort"></span></li>
+                    </ol>
                 </div>
+
                 </div>
             
         </div>
@@ -147,6 +156,7 @@
 <!-- Main code -->
 <script src="js/media.js"></script>
 <script src="js/format.js"></script>
+<script src="js/sort.js"></script>
 <script src="js/search.js"></script>
 
 

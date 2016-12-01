@@ -11,6 +11,13 @@ MEDIA.decorate_ig = function(media, json){
 	media.thumbnail = json.images.thumbnail;
 	media.id = json.id;
 	media.type	= json.type;
+	var timestamp = parseInt(json.created_time);
+	if(isNaN(timestamp)){
+		media.created = new Date(timestamp);	
+	}else{
+		media.created = new Date();
+	}
+	
 
 	return media;
 };

@@ -23,19 +23,19 @@ FORMAT.newMedia = function(media){
 					"<div class='col-sm-8'>",
 					"<div class='media-body'>",
 					"<div class='list-group'>",
-					"<a href='#' class='list-group-item'>",
+					"<a  class='list-group-item'>",
 					"<strong>User comments</strong>",
 					"<p class='list-group-item-text'>"+media.captions.user.text+"</p>",
 					"</a>",
-					"<a href='#' class='list-group-item'>",
+					"<a  class='list-group-item'>",
 					"<strong>Image analysis</strong>",
 					"<p class='list-group-item-text'>"+media.captions.analysis[0].text+"</p>",
 					"</a>",
-					"<a href='#' class='list-group-item'>",
+					"<a  class='list-group-item'>",
 					"<strong>Media type</strong>",
                     "<p class='list-group-item-text'>"+media.type+"</p>",
                     "</a>",
-                    "<a href='#' class='list-group-item'>",
+                    "<a  class='list-group-item'>",
                     "<strong>Accent / Predominant color</strong>",
                     "<p class='list-group-item-text'>",
                     "<span style='background-color: #"+media.color.accentColor+";' class='dominant-color'> </span>",
@@ -68,7 +68,7 @@ FORMAT.newMedia = function(media){
 FORMAT.getTags = function(media){
 	var template = [];
 	for(var i = 0; i < media.tags.length; i++){
-		template.push("<a href='#'>#"+media.tags[i]+"</a>");
+		template.push("<a >#"+media.tags[i]+"</a>");
 	}
 	return template.join("\n");
 };
@@ -97,9 +97,20 @@ FORMAT.getPeople = function(media){
 		avg+= media.people[i].age;
 	}
 
+		media.people.min = min;
+		media.people.max = max;
+		media.people.avg = avg/media.people.length;
+		media.people.count = media.people.length;
+		media.people.male = male;
+		media.people.female = male;
+
 	if(male === 0 && female === 0){
+		media.people.min = 0;
+		media.people.max = 0;
+		media.people.avg = 0;
 		return "No people detected";
 	}
+
 	var template = ["<span class='label label-default'>Male <span class='badge'>"+male+"</span></span>",
 	"<span class='label label-default'>Female <span class='badge'>"+female+"</span></span>",
 	"<span class='label label-default'>Min age <span class='badge'>"+min+"</span></span>",
