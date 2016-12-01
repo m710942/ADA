@@ -1,6 +1,7 @@
 $(document).ready(function () {
   $("#working").hide();
   $("#alert").hide();
+  window.onMessageReceived = onMessageReceived;
    $("#busca").on("click", function(ev){
     $("#results").empty();
     var token = getCookie("access_token");
@@ -39,7 +40,7 @@ buscar = function(token){
   TOKEN = token;
   $("#working").show();
   $("#alert").hide();
-  $.ajax("https://api.instagram.com/v1/tags/"+CURRENT_SEARCH +"/media/recent?access_token="+TOKEN, {dataType:'jsonp', data:{format: 'json'}, jsonp:'callback', success:function(data){
+  $.ajax({url: "https://api.instagram.com/v1/tags/"+CURRENT_SEARCH +"/media/recent?access_token="+TOKEN, type:'GET', dataType:'jsonp',  jsonp:'callback', jsonpCallback:onMessageReceived, success:function(data){
     onMessageReceived(data);
   }});
 }
@@ -69,7 +70,7 @@ noDataBanner = function(){
 }
 
 var TAGS = {};
-onMessageReceived = function(response){
+window.onMessageReceived = onMessageReceived = function(response){
   var data = response.data;
   if(!data || data.length === 0){
     noDataBanner();
