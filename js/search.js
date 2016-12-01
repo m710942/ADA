@@ -47,7 +47,7 @@ buscar = function(token){
 }
 
 didYouMean = function(){
-  $.ajax("https://api.instagram.com/v1/tags/search?q="+CURRENT_SEARCH +"&access_token="+TOKEN, {success:function(data){
+  $.ajax({url: "https://api.instagram.com/v1/tags/search?q="+CURRENT_SEARCH +"&access_token="+TOKEN, dataType:'jsonp',  jsonp:'callback', jsonpCallback:'onSuggestionReceived', success:function(data){
     console.log(data);
     onSuggestionReceived(data);
   }});
