@@ -32,17 +32,18 @@ getCookie = function(cname) {
 
 var MEDIA_RESULTS = [];
 var EXPECTED_MEDIA = 0;
+var CURRENT_SEARCH = "";
 buscar = function(token){
-  var value = $("#query").val();
+  CURRENT_SEARCH = $("#query").val();
   $("#working").show();
   $("#alert").hide();
-  $.ajax("https://api.instagram.com/v1/tags/"+value+"/media/recent?access_token="+token, {success:function(data){
+  $.ajax("https://api.instagram.com/v1/tags/"+CURRENT_SEARCH +"/media/recent?access_token="+token, {success:function(data){
     onMessageReceived(data);
   }});
 }
 
 didYouMean = function(){
-  $.ajax("https://api.instagram.com/v1/tags/search?q="+value+"&access_token="+token, {success:function(data){
+  $.ajax("https://api.instagram.com/v1/tags/search?q="+CURRENT_SEARCH +"&access_token="+token, {success:function(data){
     onSuggestionReceived(data);
   }});
 }
