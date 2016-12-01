@@ -53,7 +53,6 @@ didYouMean = function(){
 onSuggestionReceived = function(response){
   var data = response.data;
   if(!data || data.length === 0){
-    noDataBanner();
     return;
   }
   var results = $("#results").append("<h3> Did you mean... </h3>");
@@ -72,6 +71,7 @@ var TAGS = {};
 onMessageReceived = function(response){
   var data = response.data;
   if(!data || data.length === 0){
+    noDataBanner();
     didYouMean();
     return;
   }

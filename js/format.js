@@ -145,5 +145,5 @@ FORMAT.getTagSuggestion = function(media){
 					media.media_count,
 					"</span>",
 					"</span>"];
-	return template.join("");
+	return template.join("\n");
 }
