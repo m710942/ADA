@@ -57,7 +57,7 @@ onSuggestionReceived = function(response){
   }
   var results = $("#results").append("<div id='didYouMean' class='well'> <h3> Did you mean... </h3></div>");
   for(var i = 0; i < data.length; i++){
-    $("#didYouMean").append(FORMAT.getTagSuggestion(data[i])+"&nbsp;+\n");
+    $("#didYouMean").append(FORMAT.getTagSuggestion(data[i])+"&nbsp;\n");
   }
   $("#working").hide();
 }
