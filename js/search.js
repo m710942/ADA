@@ -39,16 +39,13 @@ buscar = function(token){
   TOKEN = token;
   $("#working").show();
   $("#alert").hide();
-  $.ajax({url: "https://api.instagram.com/v1/tags/"+CURRENT_SEARCH +"/media/recent?access_token="+TOKEN, type:'GET', dataType:'jsonp',  jsonp:'callback', jsonpCallback:'onMessageReceived', success:function(data){
-    console.log(data);
+  $.ajax("https://api.instagram.com/v1/tags/"+CURRENT_SEARCH +"/media/recent?access_token="+TOKEN, {success:function(data){
     onMessageReceived(data);
   }});
-  console.info("done ajax");
 }
 
 didYouMean = function(){
-  $.ajax({url: "https://api.instagram.com/v1/tags/search?q="+CURRENT_SEARCH +"&access_token="+TOKEN, dataType:'jsonp',  jsonp:'callback', jsonpCallback:'onSuggestionReceived', success:function(data){
-    console.log(data);
+  $.ajax("https://api.instagram.com/v1/tags/search?q="+CURRENT_SEARCH +"&access_token="+TOKEN, {success:function(data){
     onSuggestionReceived(data);
   }});
 }
@@ -72,10 +69,6 @@ noDataBanner = function(){
 
 var TAGS = {};
 onMessageReceived = function(response){
-  if(response == undefined){
-    return;
-  }
-
   var data = response.data;
   if(!data || data.length === 0){
     noDataBanner();
