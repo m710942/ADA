@@ -1,6 +1,7 @@
 $(document).ready(function () {
   $("#working").hide();
   $("#alert").hide();
+  $("#breadcrumb").hide();
    $("#busca").on("click", function(ev){
     $("#results").empty();
     var token = getCookie("access_token");
@@ -148,6 +149,7 @@ reverse = function(){
 }
 
 sort = function(by, field){
+  $("#breadcrumb").show();
   if(by === 'reverse'){
     reverse();
     return;
