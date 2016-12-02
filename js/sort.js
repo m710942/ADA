@@ -83,9 +83,9 @@ SORT.bySocial = function(mediaArray, field){
 SORT.byConfidence = function(mediaArray, field){
 	if(field === 'analysis'){
 		return mediaArray.sort(function(mediaA, mediaB){
-			if((mediaA.captions.analysis.confidence*100) > (mediaB.captions.analysis.confidence*100)){
+			if((mediaA.captions.analysis[0].confidence*100) > (mediaB.captions.analysis[0].confidence*100)){
 				return 1;
-			}else if((mediaA.captions.analysis.confidence*100) < (mediaB.captions.analysis.confidence*100)){
+			}else if((mediaA.captions.analysis[0].confidence*100) < (mediaB.captions.analysis[0].confidence*100)){
 				return -1;
 			}else{
 				return 0;
