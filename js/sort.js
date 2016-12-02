@@ -14,6 +14,7 @@ SORT.byPeople = function(mediaArray, field){
 	if(field === 'gender'){
 		return mediaArray.sort(function(mediaA, mediaB){
 			var a, b;
+			
 			if(mediaA.people.male > mediaB.people.female){
 				a = 1;
 			}else{
@@ -23,6 +24,17 @@ SORT.byPeople = function(mediaArray, field){
 				b = 1;
 			}else{
 				b = 0;
+			}
+
+			if(mediaA.people.male === mediaA.people.male && mediaA.people.male === 0){
+				a == 2;
+			}else if(mediaA.people.female === mediaA.people.female && mediaA.people.female === 0){
+				a == 3;
+			}
+			if(mediaB.people.male === mediaB.people.male && mediaB.people.male === 0){
+				a == 2;
+			}else if(mediaB.people.female === mediaB.people.female && mediaB.people.female === 0){
+				b == 3;
 			}
 			return a - b;
 		});
