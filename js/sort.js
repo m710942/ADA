@@ -83,12 +83,12 @@ SORT.bySocial = function(mediaArray, field){
 SORT.byConfidence = function(mediaArray, field){
 	if(field === 'analysis'){
 		return mediaArray.sort(function(mediaA, mediaB){
-			return mediaA.captions.analysis.confidence - mediaB.captions.analysis.confidence;
+			return (mediaA.captions.analysis.confidence*100) - (mediaB.captions.analysis.confidence*100);
 		});
 	}
 	if(field === 'classification'){
 		return mediaArray.sort(function(mediaA, mediaB){
-			return media.clazz[0].confidence - mediaB.clazz[0].confidence;
+			return mediaA.clazz[0].confidence - mediaB.clazz[0].confidence;
 		});
 	}
 	
