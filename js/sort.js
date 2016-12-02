@@ -15,12 +15,12 @@ SORT.byPeople = function(mediaArray, field){
 		return mediaArray.sort(function(mediaA, mediaB){
 			var a, b;
 			
-			if(mediaA.people.male > mediaB.people.female){
+			if(mediaA.people.male > mediaA.people.female){
 				a = 1;
 			}else{
 				a = 0;
 			}
-			if(mediaA.people.male > mediaB.people.female){
+			if(mediaB.people.male > mediaB.people.female){
 				b = 1;
 			}else{
 				b = 0;
