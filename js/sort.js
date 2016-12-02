@@ -26,15 +26,11 @@ SORT.byPeople = function(mediaArray, field){
 				b = 0;
 			}
 
-			if(mediaA.people.male === mediaA.people.male && mediaA.people.male === 0){
+			if(mediaA.people.male === mediaA.people.female && mediaA.people.male === 0){
 				a == 2;
-			}else if(mediaA.people.female === mediaA.people.female && mediaA.people.female === 0){
-				a == 3;
 			}
-			if(mediaB.people.male === mediaB.people.male && mediaB.people.male === 0){
+			if(mediaB.people.male === mediaB.people.female && mediaB.people.male === 0){
 				a == 2;
-			}else if(mediaB.people.female === mediaB.people.female && mediaB.people.female === 0){
-				b == 3;
 			}
 			return a - b;
 		});
