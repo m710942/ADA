@@ -30,7 +30,7 @@ SORT.byPeople = function(mediaArray, field){
 				a == 2;
 			}
 			if(mediaB.people.male === mediaB.people.female && mediaB.people.male === 0){
-				a == 2;
+				b == 2;
 			}
 			return a - b;
 		});
