@@ -29,7 +29,7 @@ FORMAT.newMedia = function(media){
 					"</a>",
 					"<a  class='list-group-item'>",
 					"<strong>Image analysis</strong>",
-					"<p class='list-group-item-text'>"+media.captions.analysis[0].text+"</p>",
+					"<p class='list-group-item-text'>"+media.captions.analysis[0].text+" <span class='badge'>"+(media.captions.analysis[0].confidence*100).toFixed(2)+"% </span> </p>",
 					"</a>",
 					"<a  class='list-group-item'>",
 					"<strong>Media type</strong>",
